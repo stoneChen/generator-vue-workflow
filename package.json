@@ -1,0 +1,30 @@
+{
+  "name": "generator-vue-workflow",
+  "version": "0.1.0",
+  "description": "used to scaffolding vuejs projects",
+  "main": "app/index.js",
+  "files": [
+    "app"
+  ],
+  "scripts": {
+    "vp": "mversion patch -m 'Bumped to v%s'",
+    "vm": "mversion minor -m 'Bumped to v%s'",
+    "vmajor": "mversion major -m 'Bumped to v%s'"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "baby31529@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "yosay": "^0.3.0",
+    "yeoman-generator": "^0.21.1"
+  },
+  "devDependencies": {
+    "mversion": "^1.10.1"
+  }
+}

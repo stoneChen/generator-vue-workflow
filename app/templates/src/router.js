@@ -1,0 +1,10 @@
+'use strict'
+
+import VueRouter from 'vue-router'
+import routes from './routes'
+
+const router = new VueRouter()
+
+router.map(routes)
+
+export default router
