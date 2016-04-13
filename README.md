@@ -1,6 +1,6 @@
-# A Yeoman generator for building a static page
+# A Yeoman generator used to scaffolding vuejs projects 
 
-*使用本generator前,需先安装全局yeoman*
+*使用本generator前,需先安装全局 [yeoman](http://yeoman.io)*
 
 ###安装
 ```
@@ -21,4 +21,7 @@ npm start
 ```
 npm run build
 ```
-
+### 说明
+本工具生成的vue工程,除了`vue`本身外,还附带了`vue-resource`,`vue-router`, `vuex`.  
+webpack配置基于 [vue-cli](https://github.com/vuejs/vue-cli)的官网模板改造.  
+整体上的配置可用于开发大型单页应用.
