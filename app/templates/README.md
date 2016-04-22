@@ -7,7 +7,7 @@
 npm install
 ```
 
-# run
+# Run
 ```
 npm start
 ```
