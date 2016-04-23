@@ -3,7 +3,7 @@ var autoprefixer = require('autoprefixer');<% if (props.isMobile) { %>
 var pxtorem = require('postcss-pxtorem');<% } %>
 module.exports = {
   entry: {
-    index: './src/main.js'
+    index: './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
