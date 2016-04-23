@@ -7,5 +7,5 @@ zip
 bower_components
 *.swp
 *.swo
-ngrok.config.json
 ngrok.config.yml
+proxy.config.yml

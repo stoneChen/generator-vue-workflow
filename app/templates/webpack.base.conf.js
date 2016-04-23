@@ -13,13 +13,13 @@ module.exports = {
   resolve: {
     extensions: ['', '.js'],
     alias: {
-      src: path.resolve(__dirname, '../src'),
-      store: path.join(__dirname, 'src/store/store.js'),
-      action: path.join(__dirname, 'src/store/actions'),
-      view: path.join(__dirname, 'src/views'),
-      style: path.join(__dirname, 'src/assets/styles'),
-      component: path.join(__dirname, 'src/components'),
-      module: path.join(__dirname, 'modules')
+      src: path.resolve(__dirname, 'src'),
+      store: path.join(__dirname, 'src/store'),
+      actions: path.join(__dirname, 'src/store/actions'),
+      views: path.join(__dirname, 'src/views'),
+      styles: path.join(__dirname, 'src/assets/styles'),
+      components: path.join(__dirname, 'src/components'),
+      modules: path.join(__dirname, 'modules')
     }
   },
   resolveLoader: {

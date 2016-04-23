@@ -1,11 +1,29 @@
 var express = require('express')
 var path = require('path')
-var proxy = require('proxy-middleware')
+var doProxy = require('proxy-middleware')
 var webpack = require('webpack')
+var fs = require('fs')
 var ip = require('ip')
 var open = require('open')
+var yamljs = require('yamljs')
 var config = require('./webpack.dev.conf')
 var globalConfig = require('./global.config')
+
+var rapNode = require('rap-node-plugin')// rap插件
+global.RAP_FLAG = 1  // 开启rap服务
+rapNode.config({
+  host: 'rap.ops.xkeshi.so',    //启动的服务主机
+  // port: '80',           //端口号
+  projectId: 19,          //RAP配置的项目ID, 不同的项目不同,记得修改
+  mock: '/mockjs/',  //RAP前缀
+  wrapper: ''             //不需要包装
+})
+
+var PROXY_CONFIG_FILENAME = 'proxy.config.yml'
+if (!fs.existsSync(PROXY_CONFIG_FILENAME)) {
+  fs.createReadStream(PROXY_CONFIG_FILENAME + '.sample')
+    .pipe(fs.createWriteStream(PROXY_CONFIG_FILENAME))
+}
 
 var curIP = ip.address()
 var port = globalConfig.serverPort
@@ -28,21 +46,64 @@ app.use(require('webpack-dev-middleware')(compiler, {
 // compilation error display
 app.use(require('webpack-hot-middleware')(compiler))
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-});
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'dist/index.html'))
+// })
 
-if (globalConfig.proxy) {
-  app.use(proxy(globalConfig.proxy.target));
-}
-
+//数据请求中间件
+app.use(function (req, res, next) {
+  console.log('middleware:', req.url)
+  if (req.url === '/index.html') {
+    // res.writeHead('404')
+    res.sendFile(path.join(__dirname, 'error.html'))
+    return
+  }
+  var apiRoot = getApiRoot()
+  if (apiRoot === 'RAP') {
+    console.warn('RAP MODE detected, use rap to mock data')
+    rapNode.getRapData(req.url, function (err, data) {
+      if (err) {
+        res.end(err)
+        return
+      }
+      res.end(JSON.stringify(data))
+    })
+  }else if (apiRoot) {
+    console.info('remote apiRoot found, dispatched to `%s`', apiRoot)
+    return doProxy(apiRoot)(req, res, next)
+  } else {
+    console.error('apiRoot NOT FOUND!')
+    res.end(JSON.stringify({
+      stat: 'error',
+      msg: 'apiRoot NOT FOUND!'
+    }))
+  }
+  // 暂不提供本地 mock
+  // else {
+  //   warn('apiRoot NOT found, use local mock data')
+  //   var result = getMockData(match)
+  //   res.end(result)
+  // }
+})
 
 app.listen(port, curIP, function (err) {
   if (err) {
-    console.error(err);
-    return;
+    console.error(err)
+    return
   }
-  var address = ['http://', curIP, ':', port].join('');
-  console.log('Go to %s', address);
-  open(address);
-});
+  var address = ['http://', curIP, ':', port].join('')
+  console.log('Go to %s', address)
+  open(address)
+})
+
+
+function getApiRoot() {
+  var proxyCfg = {}
+  try {
+    proxyCfg = yamljs.load(PROXY_CONFIG_FILENAME)
+  } catch (err) {
+    console.error('Reading %s failed', PROXY_CONFIG_FILENAME)
+    console.error(err)
+  }
+  return proxyCfg.proxy
+}

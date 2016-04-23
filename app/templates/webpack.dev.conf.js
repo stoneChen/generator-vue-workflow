@@ -6,7 +6,7 @@ var ip = require('ip')
 
 var PUBLIC_PATH = ['http://', ip.address(), ':', globalConfig.serverPort, '/'].join('')
 // eval-source-map is faster for development
-config.devtool = 'eval-source-map'
+config.devtool = '#eval-source-map'
 
 // add hot-reload related code to entry chunks
 var polyfill = 'eventsource-polyfill'

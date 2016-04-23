@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<!--本页面用于,首次启动服务时,模块打包失败,输出的页面,否则页面将会被代理到proxy配置的远程服务-->
+<div class="container" style="margin: 100px auto;">
+  <div class="alert alert-danger" role="alert">
+    <p><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+      如果你看到此页面, 那么你可能是刚刚启动服务,你的模块可能有误,或eslint不通过,请检查你的控制台.修复完毕,请刷新浏览器.</p>
+  </div>
+</div>
+</body>
+</html>

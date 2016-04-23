@@ -1,3 +1,6 @@
+/**
+ * rem响应式方案的实现
+ */
 let win = global
 let doc = win.document
 let baseWidth = 640

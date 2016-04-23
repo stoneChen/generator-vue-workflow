@@ -1,5 +1,3 @@
-'use strict'
-
 import VueRouter from 'vue-router'
 import routes from './routes'
 

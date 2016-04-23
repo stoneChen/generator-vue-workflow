@@ -8,13 +8,13 @@
     "ngrok": "gulp ngrok"
   },
   "dependencies": {
+    "fastclick": "1.0.6",
     "lodash": "3.10.1",
+    "swiper": "3.3.1",
     "vue": "1.0.20",
     "vue-resource": "0.7.0",
     "vue-router": "0.7.11",
-    "vuex": "0.6.2",
-    "swiper": "3.3.1",
-    "fastclick": "1.0.6"
+    "vuex": "0.6.2"
   },
   "devDependencies": {
     "autoprefixer": "6.2.3",
@@ -44,6 +44,7 @@
     "postcss-loader": "0.8.1",<% if (props.isMobile) { %>
     "postcss-pxtorem": "3.3.1", <% } %>
     "proxy-middleware": "0.15.0",
+    "rap-node-plugin": "0.2.2",
     "rimraf": "2.5.0",
     "sass-loader": "3.1.2",
     "style-loader": "0.13.0",

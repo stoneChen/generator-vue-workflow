@@ -2,7 +2,7 @@
 
 var fs = require('fs'),
   gulp = require('gulp'),
-  YAML = require('yamljs'),
+  yamljs = require('yamljs'),
   spawn = require('child_process').spawn
 
 var NGROK_CONFIG_FILENAME = 'ngrok.config.yml'
@@ -16,7 +16,7 @@ if (!fs.existsSync(NGROK_CONFIG_FILENAME)) {
 gulp.task('ngrok', function (cb) {
   // 不用setTimeout的话,首次刚创建的ngrok.config.yml读进来居然是空的,暂时无解,难道pipe是异步的?
   setTimeout(function () {
-    var ngrokConfig = YAML.load(NGROK_CONFIG_FILENAME);
+    var ngrokConfig = yamljs.load(NGROK_CONFIG_FILENAME);
     // console.log('hehe')
     var ngrok = spawn(__dirname + '/ngrok/' + ngrokConfig.env + '/ngrok', [
       '-config',

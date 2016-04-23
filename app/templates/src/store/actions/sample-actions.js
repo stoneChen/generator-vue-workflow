@@ -1,8 +1,6 @@
-'use strict'
-
 import {
   SAMPLE
-} from '../mutation-types/sample-mutation-types'
+} from '../mutation-types'
 
 export function doSample ({ dispatch }) {
   dispatch(SAMPLE)

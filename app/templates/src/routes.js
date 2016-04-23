@@ -1,6 +1,4 @@
-'use strict'
-
-import Index from 'view/index/index.vue'
+import Index from 'views/index/index.vue'
 
 export default {
   '/': {

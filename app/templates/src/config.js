@@ -20,6 +20,8 @@ Vue.http.interceptors.push({
     if (response.status === 500) {
       alert('服务器出错,请重试')
     }
+    return response // 必须返回,否则业务http的promise将拿不到结果
   }
 
 })
+
