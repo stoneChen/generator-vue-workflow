@@ -53,6 +53,7 @@
     "vue-loader": "7.4.0",
     "webpack": "1.12.9",
     "webpack-dev-middleware": "1.5.1",
-    "webpack-hot-middleware": "2.9.1"
+    "webpack-hot-middleware": "2.9.1",
+    "yamljs": "0.2.7"
   }
 }
