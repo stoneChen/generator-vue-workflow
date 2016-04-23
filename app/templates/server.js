@@ -53,8 +53,7 @@ app.use(require('webpack-hot-middleware')(compiler))
 //数据请求中间件
 app.use(function (req, res, next) {
   console.log('middleware:', req.url)
-  if (req.url === '/index.html') {
-    // res.writeHead('404')
+  if (req.url === '/index.html') { // 首次启动服务时,如果模块打包失败,输出error.html,否则index.html将会被代理到proxy配置的远程服务
     res.sendFile(path.join(__dirname, 'error.html'))
     return
   }
