@@ -17,7 +17,16 @@
   "keywords": [
     "yeoman-generator"
   ],
-  "author": "baby31529@gmail.com",
+  "authors": [
+    {
+      "name": "Jokcy",
+      "email": "jokcylou@hotmail.com"
+    },
+    {
+      "name": "cloudstone",
+      "email": "baby31529@gmail.com"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.1",
