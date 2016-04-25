@@ -56,6 +56,7 @@ config.plugins = (config.plugins || []).concat([
     filename: 'index.html',
     template: 'index.template.ejs',
     title: globalConfig.pageConfig.title,
+    favicon: 'src/assets/images/favicon.png',
     inject: true,
     minify: {
       removeComments: true,
