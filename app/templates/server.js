@@ -21,8 +21,7 @@ rapNode.config({
 
 var PROXY_CONFIG_FILENAME = 'proxy.config.yml'
 if (!fs.existsSync(PROXY_CONFIG_FILENAME)) {
-  fs.createReadStream(PROXY_CONFIG_FILENAME + '.sample')
-    .pipe(fs.createWriteStream(PROXY_CONFIG_FILENAME))
+  fs.writeFileSync(PROXY_CONFIG_FILENAME, fs.readFileSync(PROXY_CONFIG_FILENAME + '.sample'));
 }
 
 var curIP = ip.address()
