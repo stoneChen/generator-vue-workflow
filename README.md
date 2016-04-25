@@ -2,17 +2,17 @@
 
 *使用本generator前,需先安装全局 [yeoman](http://yeoman.io)*
 
-###安装
+### 安装
 ```
 npm install generator-vue-workflow -g
 ```
-###使用
+### 使用
 新建一个工程目录并进入,然后:
 ```
 yo vue-workflow 
 ```
 
-###启动
+### 启动
 ```
 npm start
 ```
