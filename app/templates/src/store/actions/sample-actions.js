@@ -1,5 +1,5 @@
 import {
-  SAMPLE
+  SAMPLE,
 } from '../mutation-types'
 
 export function doSample ({ dispatch }) {

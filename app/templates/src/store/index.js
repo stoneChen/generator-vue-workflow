@@ -14,14 +14,14 @@ if (debug) {
       // 输出前对 state 进行转换
       // 比如说只返回一个 sub-tree
       return state.subTree
-    }
+    },
   }))
 }
 
 const store = new Vuex.Store({
   strict: debug,
   modules,
-  middlewares
+  middlewares,
 })
 
 export default store

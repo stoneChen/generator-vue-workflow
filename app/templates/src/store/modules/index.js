@@ -3,5 +3,5 @@ import searchResult from './search-result'
 
 export default {
   counter,
-  searchResult
+  searchResult,
 }

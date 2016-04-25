@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import {
-  SET_ZHIHU_SEARCH_RESULT
+  SET_ZHIHU_SEARCH_RESULT,
 } from '../mutation-types'
 
 export function searchFromZhihu ({ dispatch }, keywords) {

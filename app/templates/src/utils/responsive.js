@@ -7,12 +7,12 @@ let baseWidth = 640
 let documentHTML = doc.documentElement
 
 function setRootFont () {
-  var docWidth = documentHTML.getBoundingClientRect().width
-  var scale = docWidth / baseWidth
+  let docWidth = documentHTML.getBoundingClientRect().width
+  let scale = docWidth / baseWidth
   if (docWidth > 640) {
     scale = 0.5
   }
-  documentHTML.style.fontSize = scale * 100 + 'px'
+  documentHTML.style.fontSize = `${scale * 100}px`
 }
 
 setRootFont()

@@ -29,16 +29,16 @@
           return state.searchResult.result[0].filter((ret, i) => {
             return i > 0
           })
-        }
+        },
       },
       actions: {
         doSample,
-        searchFromZhihu
-      }
+        searchFromZhihu,
+      },
     },
     data () {
       return {
-        keywords: 'vuejs'
+        keywords: 'vuejs',
       }
     },
     methods: {
@@ -48,8 +48,8 @@
       },
       doSearch () {
         this.searchFromZhihu(this.keywords)
-      }
-    }
+      },
+    },
   }
 </script>
 
