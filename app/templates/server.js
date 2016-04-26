@@ -11,13 +11,7 @@ var globalConfig = require('./global.config')
 
 var rapNode = require('rap-node-plugin')// rap插件
 global.RAP_FLAG = 1  // 开启rap服务
-rapNode.config({
-  host: 'rap.ops.xkeshi.so',    //启动的服务主机
-  // port: '80',           //端口号
-  projectId: 19,          //RAP配置的项目ID, 不同的项目不同,记得修改
-  mock: '/mockjs/',  //RAP前缀
-  wrapper: ''             //不需要包装
-})
+rapNode.config(globalConfig.rap)
 
 var PROXY_CONFIG_FILENAME = 'proxy.config.yml'
 if (!fs.existsSync(PROXY_CONFIG_FILENAME)) {
