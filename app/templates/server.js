@@ -55,7 +55,7 @@ app.use(function (req, res, next) {
     console.warn('RAP MODE detected, use rap to mock data')
     rapNode.getRapData(req.url, function (err, data) {
       if (err) {
-        res.end(err)
+        res.end(JSON.stringify(err))
         return
       }
       res.end(JSON.stringify(data))
