@@ -7,6 +7,7 @@ var globalConfig = require('./global.config')
 // dist/index.html will be auto-generated with correct URLs.
 // config.output.filename = '[name].[hash:8].js'
 // config.output.chunkFilename = '[id].[hash:8].js'
+config.output.publicPath = 'static/'
 config.output.filename = '[name].[hash:8].js'
 config.output.chunkFilename = '[id].[hash:8].js'
 
@@ -20,21 +21,21 @@ config.devtool = SOURCE_MAP ? 'source-map' : false
 config.module.loaders.push(
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract('css-loader')
+    loader: ExtractTextPlugin.extract('css')
   },
   {
     test: /\.scss/,
-    loader: ExtractTextPlugin.extract('css-loader!postcss-loader!sass-loader?outputStyle=expanded')
+    loader: ExtractTextPlugin.extract('css!postcss!stylus')
   }
 )
 
 config.vue.loaders = {
-  css: ExtractTextPlugin.extract('css-loader'),
-  sass: ExtractTextPlugin.extract('css-loader!postcss-loader!sass-loader')
+  css: ExtractTextPlugin.extract('css'),
+  stylus: ExtractTextPlugin.extract('css!postcss!stylus')
 }
 
 config.plugins = (config.plugins || []).concat([
-  // http://vuejs.github.io/vue-loader/workflow/production.html
+  // http://vuejs.github.io/vue/workflow/production.html
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: '"production"'

@@ -53,6 +53,6 @@
   }
 </script>
 
-<style lang="sass" rel="stylesheet/scss" scoped>
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 
 </style>

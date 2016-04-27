@@ -23,11 +23,11 @@ config.output.publicPath = PUBLIC_PATH
 config.module.loaders.push(
   {
     test: /\.css$/,
-    loader: "style-loader!css-loader"
+    loader: "style!css"
   },
   {
-    test: /\.scss/,
-    loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
+    test: /\.styl/,
+    loader: 'style!css!postcss!stylus'
   }
 )
 config.plugins = (config.plugins || []).concat([

@@ -7,7 +7,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // publicPath: 'static/',
     filename: '[name].js'
   },
   resolve: {
