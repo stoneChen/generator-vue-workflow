@@ -24,7 +24,7 @@ config.module.loaders.push(
     loader: ExtractTextPlugin.extract('css')
   },
   {
-    test: /\.scss/,
+    test: /\.styl/,
     loader: ExtractTextPlugin.extract('css!postcss!stylus')
   }
 )
