@@ -1,6 +1,6 @@
 {
   "name": "generator-vue-workflow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "used to scaffolding vuejs projects",
   "main": "app/index.js",
   "files": [
