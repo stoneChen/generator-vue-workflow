@@ -24,8 +24,6 @@ var port = globalConfig.serverPort
 var app = express()
 var compiler = webpack(config)
 
-app.use(require('connect-history-api-fallback')())
-
 // serve webpack bundle output
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
